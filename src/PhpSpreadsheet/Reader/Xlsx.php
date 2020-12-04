@@ -1397,12 +1397,14 @@ class Xlsx extends BaseReader
                                     }
 
                                     try {
+
                                         $excel->addDefinedName(DefinedName::createInstance((string) $definedName['name'], $locatedSheet, $definedRange, false));
-
-                                    } catch (PhpSpreadsheetException $e) {
-
-                                        continue;
                                     }
+                                    catch(PhpSpreadsheetException $e) {
+                                        continue;
+
+                                    }
+
                                 }
                             }
                         }
@@ -1811,7 +1813,7 @@ class Xlsx extends BaseReader
         }
     }
 
-    private static function getArrayItem($array, $key = 0)
+    public static function getArrayItem($array, $key = 0)
     {
         return $array[$key] ?? null;
     }

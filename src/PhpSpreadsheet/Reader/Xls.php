@@ -1272,6 +1272,7 @@ class Xls extends BaseReader
                         break;
                 }
             } else {
+
                 // Extract range
                 if (strpos($definedName['formula'], '!') !== false) {
                     $explodes = Worksheet::extractSheetTitle($definedName['formula'], true);
@@ -2933,7 +2934,7 @@ class Xls extends BaseReader
             } catch (PhpSpreadsheetException $e) {
                 $formula = '';
             }
-
+dd(3);
             $this->definedname[] = [
                 'isBuiltInName' => $isBuiltInName,
                 'name' => $string['value'],
